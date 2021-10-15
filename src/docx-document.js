@@ -344,6 +344,15 @@ class DocxDocument {
             return self.findIndex((v) => v.level === value.level) === index;
           })
           .forEach(({ level, type }) => {
+             // our scheme is to cycle through 1 -> a -> i. so we can
+            // deduce marker from level
+            const levelOffset = level % 3; 
+            let markerType = 'decimal';
+            if (levelOffset === 1) {
+              markerType = 'lowerLetter';
+            } else if (levelOffset === 2) {
+              markerType = 'lowerRoman'
+            } 
             const levelFragment = fragment({
               namespaceAlias: { w: namespaces.w },
             })
@@ -353,7 +362,7 @@ class DocxDocument {
               .att('@w', 'val', '1')
               .up()
               .ele('@w', 'numFmt')
-              .att('@w', 'val', type === 'ol' ? 'decimal' : 'bullet')
+              .att('@w', 'val', type === 'ol' ? markerType : 'bullet') // docx can only handle bullets for ul
               .up()
               .ele('@w', 'lvlText')
               .att('@w', 'val', type === 'ol' ? `%${level + 1}` : '')
