@@ -35,8 +35,8 @@
   },
   "homepage": "https://github.com/privateOmega/html-to-docx#readme",
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
     "@rollup/plugin-commonjs": "^12.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
@@ -57,7 +57,7 @@
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^6.1.0",
-    "standard-version": "^8.0.0"
+    "standard-version": "^9.5.0"
   },
   "dependencies": {
     "color-name": "^1.1.4",
